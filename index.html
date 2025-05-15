@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Birds</title>
+    <style>
+        /* 重置浏览器默认样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        /* 背景容器样式 */
+        #birds-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* 内容区域样式 */
+        .content {
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        .content h1 {
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .content span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 鸟群背景容器 -->
+    <div id="birds-background"></div>
+    
+    <!-- 页面内容 -->
+    <div class="content">
+        <h1>Powered by <span>Vanta.js</span></h1>
+    </div>
+
+    <!-- 引入必要的脚本 -->
+    <script src="three.r134.min.js"></script>
+    <script src="vanta.birds.min.js"></script>
+    <script>
+        // 初始化鸟群背景效果
+        VANTA.BIRDS({
+            el: "#birds-background", // 背景容器选择器
+            mouseControls: true,     // 启用鼠标控制
+            touchControls: true,     // 启用触摸控制
+            gyroControls: false,     // 禁用陀螺仪控制
+            minHeight: 200.00,       // 最小高度
+            minWidth: 200.00,        // 最小宽度
+            scale: 1.00,             // 缩放比例
+            scaleMobile: 1.00,       // 移动设备缩放比例
+            backgroundColor: 0x7192f,// 背景颜色
+            color1: 0xff0000,        // 鸟群颜色1
+            color2: 0x00ff00,        // 鸟群颜色2
+            colorMode: "variance",   // 颜色模式：lerp、variance、lerpGradient、varianceGradient
+            birdSize: 1.5,           // 鸟的大小
+            wingSpan: 30.0,          // 翅膀跨度
+            speedLimit: 5.0,         // 速度限制
+            separation: 30.0,        // 鸟群分离度
+            alignment: 20.0,         // 鸟群对齐度
+            cohesion: 20.0,          // 鸟群凝聚度
+            quantity: 4.0            // 鸟的数量
+        });
+    </script>
+</body>
+</html>
